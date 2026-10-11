@@ -1,0 +1,20 @@
+{
+  "dataset": "orders",
+  "contract_version": 1,
+  "primary_key": "order_id",
+  "thresholds": {
+    "file_type_drift_rate": 0.5,
+    "value_drift_alert_rate": 0.05,
+    "rename_min_conformance": 0.9,
+    "rename_min_name_score": 0.5
+  },
+  "columns": {
+    "order_id":    {"type": "integer", "required": true},
+    "customer_id": {"type": "string",  "required": true, "pattern": "C[0-9]{4}"},
+    "order_date":  {"type": "date",    "required": true},
+    "amount":      {"type": "decimal", "required": true, "min": 0},
+    "status":      {"type": "string",  "required": true, "enum": ["PLACED", "SHIPPED", "DELIVERED", "CANCELLED", "RETURNED"]},
+    "channel":     {"type": "string",  "required": false, "enum": ["WEB", "APP", "STORE"]}
+  },
+  "aliases": {}
+}

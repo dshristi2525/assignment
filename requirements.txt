@@ -1,0 +1,5 @@
+# The pipeline and the test-suite use only the Python standard library (Python 3.9+).
+# Nothing to install to run: python main.py demo
+#
+# Optional - only if you prefer pytest over `python -m unittest`:
+# pytest>=7.0
