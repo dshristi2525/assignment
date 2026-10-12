@@ -21,7 +21,8 @@ CREATE TABLE IF NOT EXISTS file_registry (
     sha256            TEXT    NOT NULL,
     header_json       TEXT,
     status            TEXT    NOT NULL CHECK (status IN
-                        ('LOADED', 'LOADED_WITH_WARNINGS', 'QUARANTINED_FILE', 'REJECTED', 'SUPERSEDED')),
+                        ('PROCESSING', 'LOADED', 'LOADED_WITH_WARNINGS', 'QUARANTINED_FILE', 'REJECTED', 'SUPERSEDED')),
+                      -- PROCESSING only exists inside the file's transaction; it is never committed
     schema_version_id INTEGER REFERENCES schema_versions (schema_version_id),
     contract_version  INTEGER,
     contract_hash     TEXT,
